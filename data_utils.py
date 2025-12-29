@@ -268,9 +268,9 @@ def generate_fashion_mnist(args):
 
 def plot_neural_activity(neurons, path):   
     N = len(neurons)
-    fig = plt.figure(figsize=(3*N,6))
+    fig = plt.figure(figsize=(3*N,6)) # make wider if more layers but fixed height
     for idx in range(N):
-        fig.add_subplot(2, N//2+1, idx+1)
+        fig.add_subplot(2, N//2+1, idx+1) # make subplots over two layers
         nrn = neurons[idx].cpu().detach().numpy().flatten()
         plt.hist(nrn, 50)
         plt.title('neurons of layer '+str(idx+1))
