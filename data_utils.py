@@ -171,7 +171,7 @@ def generate_mnist(args):
 def generate_fashion_mnist(args):
     '''
     Generate Fashion-MNIST dataloaders
-    If input_positive_negative_remapping is True, remaps pixel values from [0,1] to [-1,1]
+    If input_positive_negative_mapping is True, remaps pixel values from [0,1] to [-1,1]
     '''
 
     # Use custom training and test data size
