@@ -149,7 +149,7 @@ def generate_mnist(args):
     # Use multiple workers for asynchronous data loading
     print(f"Using num_workers={args.num_workers} for DataLoaders.")
     train_loader = torch.utils.data.DataLoader(mnist_dset_train, batch_size=args.mbs, shuffle=True, num_workers=args.num_workers, persistent_workers=True, pin_memory=True)
-    test_loader = torch.utils.data.DataLoader(mnist_dset_test, batch_size=200, shuffle=False, num_workers=args.num_workers, persistent_workers=True, pin_memory=True)
+    test_loader = torch.utils.data.DataLoader(mnist_dset_test, batch_size=max(1, N_data_test // 10), shuffle=False, num_workers=args.num_workers, persistent_workers=True, pin_memory=True)
 
 
     if args.debug:
@@ -238,7 +238,7 @@ def generate_fashion_mnist(args):
     # Use multiple workers for asynchronous data loading
     print(f"Using num_workers={args.num_workers} for Fashion-MNIST DataLoaders.")
     train_loader = torch.utils.data.DataLoader(fashion_mnist_dset_train, batch_size=args.mbs, shuffle=True, num_workers=args.num_workers, persistent_workers=True, pin_memory=True)
-    test_loader = torch.utils.data.DataLoader(fashion_mnist_dset_test, batch_size=200, shuffle=False, num_workers=args.num_workers, persistent_workers=True, pin_memory=True)
+    test_loader = torch.utils.data.DataLoader(fashion_mnist_dset_test, batch_size=max(1, N_data_test // 10), shuffle=False, num_workers=args.num_workers, persistent_workers=True, pin_memory=True)
 
 
     if args.debug:
